@@ -18,7 +18,7 @@
 
 ![physical_model](img/physical_model.png)
 
-### [Credit Tabble](src/credit_dml.sql)
+### [Credit Table](src/credit_dml.sql)
 
 | Название поля | Тип         | Ограничения                              |
 | ------------- | ----------- | ---------------------------------------- |
@@ -29,7 +29,7 @@
 | credit_summ   | INTEGER     | NOT NULL, CHECK (credit_summ > 0)        |
 | credit_name   | VARCHAR(30) | NOT NULL, UNIQUE, REFERENCES credit_type | 
 
-### [Deposit Tabble](src/deposit_dml.sql)
+### [Deposit Table](src/deposit_dml.sql)
 
 | Название поля | Тип         | Ограничения                               |
 | ------------- | ----------- | ----------------------------------------- |
@@ -40,7 +40,7 @@
 | deposit_summ  | INTEGER     | NOT NULL, CHECK (deposit_summ > 0)        |
 | deposit_name  | VARCHAR(30) | NOT NULL, UNIQUE, REFERENCES deposit_type | 
 
-### [Client Tabble](src/client.sql)
+### [Client Table](src/client.sql)
 
 | Название поля   | Тип         | Ограничения                                     |
 | --------------- | ----------- | ----------------------------------------------- |
@@ -52,7 +52,7 @@
 | passport_number | VARCHAR(10) | NOT NULL, CHECK (LENGTH(passport_number) == 10) |
 | phone_number    | VARCHAR(11) | NOT NULL CHECK (LENGTH(phone_number) == 11)     | 
 
-### [Credit_type Tabble](src/credit_type_dml.sql)
+### [Credit_type Table](src/credit_type_dml.sql)
 
 | Название поля   | Тип         | Ограничения                              |
 | --------------- | ----------- | ---------------------------------------- |
@@ -63,7 +63,7 @@
 | currency_id     | INTEGER     | NOT NULL                                 |
 | max_summ        | INTEGER     | NOT NULL                                 | 
 
-### [Deposit_type Tabble](src/deposit_type_dml.sql)
+### [Deposit_type Table](src/deposit_type_dml.sql)
 
 | Название поля   | Тип         | Ограничения                              |
 | --------------- | ----------- | ---------------------------------------- |
@@ -74,7 +74,7 @@
 | currency_id     | INTEGER     | NOT NULL                                 |
 | min_summ        | INTEGER     | NOT NULL                                 | 
 
-### [Currency_type Tabble](src/currency_type_dml.sql)
+### [Currency_type Table](src/currency_type_dml.sql)
 
 | Название поля | Тип         | Ограничения      |
 | ------------- | ----------- | ---------------- |

@@ -20,8 +20,8 @@ services:
     image: dpage/pgadmin4
     container_name: "pgadmin"
     environment:
-      PGADMIN_DEFAULT_EMAIL: av59ru@yandex.ru
-      PGADMIN_DEFAULT_PASSWORD: root
+      PGADMIN_DEFAULT_EMAIL: mail
+      PGADMIN_DEFAULT_PASSWORD: password
     volumes:
       - data_pgadmin:/var/lib/pgadmin
     ports:

@@ -23,7 +23,7 @@
 | Название поля | Тип         | Ограничения                              |
 | ------------- | ----------- | ---------------------------------------- |
 | credit_id     | BIGSERIAL   | NOT NULL, PRIMARY KEY                    |
-| client_id     | BIGINT      | NOT NULL, FOREIGN KEY, REFERENCES client |
+| client_id     | BIGINT      | NOT NULL REFERENCES client (client_id)   |
 | opening_date  | DATE        | CHECK (closing_date > opening_date)      |
 | closing_date  | DATE        | CHECK (closing_date > opening_date)      |
 | credit_summ   | INTEGER     | NOT NULL, CHECK (credit_summ > 0)        |
@@ -34,7 +34,7 @@
 | Название поля | Тип         | Ограничения                               |
 | ------------- | ----------- | ----------------------------------------- |
 | deposit_id    | BIGSERIAL   | NOT NULL, PRIMARY KEY                     |
-| client_id     | BIGINT      | NOT NULL, FOREIGN KEY,  REFERENCES client |
+| client_id     | BIGINT      | NOT NULL REFERENCES client (client_id)    |
 | opening_date  | DATE        | CHECK (closing_date > opening_date)       |
 | closing_date  | DATE        | CHECK (closing_date > opening_date)       |
 | deposit_summ  | INTEGER     | NOT NULL, CHECK (deposit_summ > 0)        |
@@ -49,30 +49,28 @@
 | second_name     | VARCHAR(50) | NOT NULL                                        |
 | last_name       | VARCHAR(50) | NOT NULL                                        |
 | hb_data         | DATE        | NOT NULL                                        |
-| passport_number | VARCHAR(10) | NOT NULL, CHECK (LENGTH(passport_number) == 10) |
-| phone_number    | VARCHAR(11) | NOT NULL CHECK (LENGTH(phone_number) == 11)     | 
+| passport_number | VARCHAR(10) | NOT NULL, CHECK (LENGTH(passport_number) = 10)  |
+| phone_number    | VARCHAR(11) | NOT NULL CHECK (LENGTH(phone_number) = 11)      | 
 
 ### [Credit_type Table](src/credit_type_dml.sql)
 
-| Название поля   | Тип         | Ограничения                              |
-| --------------- | ----------- | ---------------------------------------- |
-| credit_id       | BIGSERIAL   | NOT NULL, PRIMARY KEY                    |
-| credit_name     | VARCHAR(30) | NOT NULL, UNIQUE                         |
-| percent         | FLOAT       | NOT NULL, CHECK (percent > 0)            |
-| commission      | FLOAT       | NOT NULL                                 |
-| currency_id     | INTEGER     | NOT NULL                                 |
-| max_summ        | INTEGER     | NOT NULL                                 | 
+| Название поля   | Тип         | Ограничения                    |
+| --------------- | ----------- | ------------------------------ |
+| credit_name     | VARCHAR(30) | NOT NULL, UNIQUE               |
+| percent         | FLOAT       | NOT NULL, CHECK (percent > 0)  |
+| commission      | FLOAT       | NOT NULL                       |
+| currency_id     | INTEGER     | NOT NULL                       |
+| max_summ        | INTEGER     | NOT NULL                       | 
 
 ### [Deposit_type Table](src/deposit_type_dml.sql)
 
-| Название поля   | Тип         | Ограничения                              |
-| --------------- | ----------- | ---------------------------------------- |
-| deposit_id      | BIGSERIAL   | NOT NULL, PRIMARY KEY                    |
-| deposit_name    | VARCHAR(30) | NOT NULL, UNIQUE                         |
-| percent         | FLOAT       | NOT NULL, CHECK (percent > 0)            |
-| replenishment   | FLOAT       | NOT NULL                                 |
-| currency_id     | INTEGER     | NOT NULL                                 |
-| min_summ        | INTEGER     | NOT NULL                                 | 
+| Название поля   | Тип         | Ограничения                     |
+| --------------- | ----------- | ------------------------------- |
+| deposit_name    | VARCHAR(30) | NOT NULL, UNIQUE                |
+| percent         | FLOAT       | NOT NULL, CHECK (percent > 0)   |
+| replenishment   | FLOAT       | NOT NULL                        |
+| currency_id     | INTEGER     | NOT NULL                        |
+| min_summ        | INTEGER     | NOT NULL                        | 
 
 ### [Currency_type Table](src/currency_type_dml.sql)
 
